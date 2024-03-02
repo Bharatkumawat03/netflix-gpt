@@ -8,9 +8,9 @@ import {
 } from "firebase/auth";
 
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constants";
 
 
 const Login = () => {
@@ -19,7 +19,6 @@ const Login = () => {
   const email = useRef(null);
   const username = useRef(null);
   const password = useRef(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   
 
@@ -39,11 +38,10 @@ const Login = () => {
           // Signed up
           const user = userCredential.user;
           updateProfile(user, {
-            displayName: username.current.value, photoURL: "https://images.unsplash.com/photo-1505968409348-bd000797c92e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D"
+            displayName: username.current.value, photoURL: {USER_AVATAR}
           }).then(() => {
             const {uid, email, displayName,photoURL} = auth.currentUser;
             dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}));
-            navigate("/browser");
           }).catch((error) => {
             setErrMsg(error.Msg);
           });
@@ -60,7 +58,6 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browser");
         })
         .catch((error) => {
           const errorCode = error.code;
