@@ -2,11 +2,19 @@ export const LOGO = "https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897
 
 export const USER_AVATAR = "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541";
 
+// export const options = {
+//   method: 'GET',
+//   headers: {
+//     accept: 'application/json',
+//     Authorization: `Bearer ${process.env.REACT_APP_OPTIONS}`
+//   }
+// };
+
 export const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: `Bearer ${process.env.REACT_APP_OPTIONS}`
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYjc3MWZmNDQxMjhiZTA5YjZlYjg0MmE2M2Q3YWJjYiIsIm5iZiI6MTcyNDk5NDgwMi4zNjU3MjgsInN1YiI6IjY1ZGViNDk0MTA5Y2QwMDE0YjE5ZDgzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZzgSK3XuWxU4EntYgEZP1wr1l2Z8defbbomS_7Sg0do'
   }
 };
 
